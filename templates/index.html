@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <!--From https://codepen.io/frytyler/pen/EGdtg-->
+  <head>
+    <meta charset="UTF-8" />
+    <title>KNN Model Prediction</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Arimo"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Hind:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="login">
+      <h1>Predict Mesh Network Analysis</h1>
+
+      <!-- Main Input For Receiving Query to our ML -->
+      <form action="{{ url_for('predict')}}" method="post">
+        <input
+          type="text"
+          name="Protocol"
+          placeholder="Protocol"
+          required="required"
+        />
+        <input
+          type="text"
+          name="Lenght"
+          placeholder="Lenght"
+          required="required"
+        />
+        <input type="text" name="RSSI" placeholder="RSSI" required="required" />
+        <input
+          type="text"
+          name="Channel"
+          placeholder="Channel Index"
+          required="required"
+        />
+        <input
+          type="text"
+          name="Flags"
+          placeholder="Flags"
+          required="required"
+        />
+        <input
+          type="text"
+          name="Interval"
+          placeholder="Interval"
+          required="required"
+        />
+        <input
+          type="text"
+          name="Advertising"
+          placeholder="Advertising Mode"
+          required="required"
+        />
+        <input
+          type="text"
+          name="TimeStamp"
+          placeholder="TimeStamp"
+          required="required"
+        />
+
+        <input
+          type="text"
+          name="Reserved_3"
+          placeholder="Reserved 3"
+          required="required"
+        />
+        <input
+          type="text"
+          name="Tx"
+          placeholder="Tx Address"
+          required="required"
+        />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">
+          Predict
+        </button>
+      </form>
+
+      <br />
+      <br />
+      {{ prediction_text }}
+    </div>
+  </body>
+</html>
